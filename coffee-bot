@@ -1,0 +1,62 @@
+from __future__ import division
+import math
+
+
+print('--------------------------------------------------------------------------------------')
+print("                                IT'S COFFEE TIME                                      ")
+print('--------------------------------------------------------------------------------------')
+
+response = raw_input(">>>>>> Hello! I'm coffee-bot, would you like to make some coffee? ")
+
+if response in ('yes', 'y', 'please'):
+    print (response)
+    print(">>>>>> Very well, lets make it happen")
+    print(">>>>>>>>>>>>")
+
+# 12 Cup Drip Coffee Calculations
+
+    drinkers = raw_input(">>>>>> How many people would like coffee? ")
+    try:
+        drinkers = int(drinkers)
+    except ValueError:
+        print(">>>>>> Please enter numeric values only, I'm not advanced enough for words here")
+        exit(1)
+
+    cups = 2 * drinkers
+    scoops = cups / 2
+    pots = (cups / 12)
+    full_pots = math.floor(pots)
+    partial_pots = pots - full_pots
+    #print("pots: {}".format(pots))
+    #print("full pots: {}".format(full_pots))
+    #print("partial pots: {}".format(partial_pots))
+
+    if drinkers >= 8:
+        print(">>>>>> This is going to be a multi-pot affair...")
+        print(">>>>>> You will need {} full pots and {} partial pots".format(full_pots, math.ceil(partial_pots)))
+        print(">>>>>> The partial pot will need {} cups of water".format((12 * partial_pots)))
+        print(">>>>>> Use 6 scoops of grounds for each full pot, equalling {} scoops total".format(6 * full_pots))
+        print(">>>>>> You will need to use {} scoops of grounds for the partial pot".format(((12 * partial_pots)/2)))
+
+    if drinkers in range(5,8):
+        print
+        print(">>>>>> Go ahead and brew a whole pot")
+        print(">>>>>> For a full pot, use 6 scoops")
+
+    if drinkers < 5:
+        print
+        print(">>>>>> I'll need to do some math...")
+        print("---")
+        print("------")
+        print("---------")
+        print(">>>>>> For {} people the recommended pot brewing size is {} cups".format(drinkers, cups))
+        print(">>>>>> For a {} cup pot, I recommend using {} scoops of grounds".format(cups, scoops))
+    print
+    print("** Remember, use cold water for better brewing **")
+    print
+
+else:
+    print(response)
+    print(">>> Perhaps tea then?")
+
+# CT 2/25/2016
